@@ -1,0 +1,1 @@
+This repository is an exercise for a series of quests during a course at Wild Code School.
