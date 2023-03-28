@@ -28,14 +28,8 @@ const pokemonList =
 const App = () =>
 {
     // Event handlers
-    const handlePrevClick = e =>
-        {
-            setIndex(-- index);
-        },
-        handleNextClick = e =>
-        {
-            setIndex(++ index);
-        };
+    const handlePrevClick = () => setIndex(-- index),
+        handleNextClick = () => setIndex(++ index);
 
     // States
     let [index, setIndex] = useState(0);
