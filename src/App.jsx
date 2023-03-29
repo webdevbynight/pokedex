@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import PokemonCard from './components/PokemonCard';
+import NavBar from './components/NavBar';
 
 const pokemonList =
 [
@@ -27,23 +28,18 @@ const pokemonList =
 
 const App = () =>
 {
-    // Event handlers
-    const handlePrevClick = () => setIndex(-- index),
-        handleNextClick = () => setIndex(++ index);
-
     // States
     let [index, setIndex] = useState(0);
 
     // Generate the template
-    const appTemplate =
+    const template =
     (
         <div>
             <PokemonCard pokemon={pokemonList[index]} />
-            {index > 0 ? <button onClick={handlePrevClick}>Previous</button> : null}
-            {index < pokemonList.length - 1 ? <button onClick={handleNextClick}>Next</button> : null}
+            <NavBar pokemons={pokemonList.length} index={index} setIndex={setIndex} />
         </div>
     );
-    return appTemplate;
+    return template;
 };
 
 export default App;
