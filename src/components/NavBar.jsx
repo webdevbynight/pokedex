@@ -1,14 +1,15 @@
-const NavBar = ({ pokemons, index, setIndex }) =>
+const NavBar = ({ pokemons, setIndex }) =>
 {
-    // Event handlers
-    const handlePrevClick = () => setIndex(-- index),
-        handleNextClick = () => setIndex(++ index);
-
     const template =
     (
         <>
-            {index > 0 ? <button onClick={handlePrevClick}>Previous</button> : null}
-            {index < pokemons - 1 ? <button onClick={handleNextClick}>Next</button> : null}
+            {
+                pokemons.map((pokemon, index) =>
+                {
+                    let { name } = pokemon;
+                    return (<button key={index} onClick={() => setIndex(index)}>{name}</button>);
+                })
+            }
         </>
     );
     return template;
